@@ -1,0 +1,24 @@
+indicators:
+  - indicator_code: SELIC_DAILY
+    name: Selic daily rate
+    source: bcb_sgs
+    source_series_code: "11"
+    frequency: daily
+    unit: "% per year"
+    category: monetary_policy
+
+  - indicator_code: USD_BRL_EXCHANGE_RATE
+    name: USD/BRL exchange rate
+    source: bcb_sgs
+    source_series_code: "10813"
+    frequency: daily
+    unit: "BRL per USD"
+    category: exchange_rate
+
+  - indicator_code: TOTAL_CREDIT_PORTFOLIO
+    name: Total credit portfolio balance
+    source: bcb_sgs
+    source_series_code: "20542"
+    frequency: monthly
+    unit: "BRL"
+    category: credit
