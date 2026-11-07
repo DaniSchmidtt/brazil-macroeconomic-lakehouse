@@ -31,7 +31,7 @@ def extract_series(
         series_code: BCB SGS series identifier.
         start_date: Start date in DD/MM/YYYY format.
         end_date: End date in DD/MM/YYYY format.
-        last_n: Number of most recent observations to retrieve.
+        last_n: Number of most recent observations to retrieve (1-20).
         timeout: HTTP request timeout in seconds.
 
     Returns:
@@ -41,8 +41,8 @@ def extract_series(
     params: dict[str, str | int] = {"formato": "json"}
 
     if last_n is not None:
-        if last_n <= 0:
-            raise ValueError("last_n must be greater than zero")
+        if not 1 <= last_n <= 20:
+            raise ValueError("last_n must be between 1 and 20")
         url = f"{url}/ultimos/{last_n}"
     else:
         if start_date:

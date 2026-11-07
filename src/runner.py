@@ -31,7 +31,7 @@ def load_indicators(config_path: Path) -> list[dict]:
 def run_pipeline(
     config_path: Path,
     output_path: Path,
-    last_n: int = 100,
+    last_n: int = 20,
 ) -> dict[str, int]:
     """Extract BCB series and persist Bronze and Silver datasets.
 
@@ -112,8 +112,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--last-n",
         type=int,
-        default=100,
-        help="Number of most recent observations to extract per series.",
+        default=20,
+        help="Number of most recent observations to extract per series (1-20).",
     )
     return parser.parse_args()
 
