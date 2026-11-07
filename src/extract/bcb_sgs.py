@@ -41,7 +41,9 @@ def extract_series(
     params: dict[str, str | int] = {"formato": "json"}
 
     if last_n is not None:
-        params["ultimos"] = last_n
+        if last_n <= 0:
+            raise ValueError("last_n must be greater than zero")
+        url = f"{url}/ultimos/{last_n}"
     else:
         if start_date:
             params["dataInicial"] = start_date
